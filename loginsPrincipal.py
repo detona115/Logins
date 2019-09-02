@@ -12,9 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(721, 437)
-        MainWindow.setMinimumSize(QtCore.QSize(721, 437))
-        MainWindow.setMaximumSize(QtCore.QSize(721, 437))
+        MainWindow.resize(731, 437)
         MainWindow.setStyleSheet("QMainWindow::separator {\n"
 "    background: yellow;\n"
 "    width: 10px; /* when vertical */\n"
@@ -26,8 +24,9 @@ class Ui_MainWindow(object):
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setObjectName("gridLayout")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget.setGeometry(QtCore.QRect(11, 11, 701, 401))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
@@ -69,13 +68,22 @@ class Ui_MainWindow(object):
         self.tabWidget.setObjectName("tabWidget")
         self.NewLogin = QtWidgets.QWidget()
         self.NewLogin.setObjectName("NewLogin")
-        self.gridLayoutWidget = QtWidgets.QWidget(self.NewLogin)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(10, 10, 681, 71))
-        self.gridLayoutWidget.setObjectName("gridLayoutWidget")
-        self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout.setObjectName("gridLayout")
-        self.label_2 = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.gridLayout_6 = QtWidgets.QGridLayout(self.NewLogin)
+        self.gridLayout_6.setObjectName("gridLayout_6")
+        self.gridLayout_5 = QtWidgets.QGridLayout()
+        self.gridLayout_5.setObjectName("gridLayout_5")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.label = QtWidgets.QLabel(self.NewLogin)
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label.setFont(font)
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        self.horizontalLayout.addWidget(self.label)
+        self.label_2 = QtWidgets.QLabel(self.NewLogin)
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(True)
@@ -83,8 +91,8 @@ class Ui_MainWindow(object):
         self.label_2.setFont(font)
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
-        self.gridLayout.addWidget(self.label_2, 1, 1, 1, 1)
-        self.label_3 = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.horizontalLayout.addWidget(self.label_2)
+        self.label_3 = QtWidgets.QLabel(self.NewLogin)
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(True)
@@ -92,8 +100,8 @@ class Ui_MainWindow(object):
         self.label_3.setFont(font)
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_3.setObjectName("label_3")
-        self.gridLayout.addWidget(self.label_3, 1, 2, 1, 1)
-        self.label_4 = QtWidgets.QLabel(self.gridLayoutWidget)
+        self.horizontalLayout.addWidget(self.label_3)
+        self.label_4 = QtWidgets.QLabel(self.NewLogin)
         font = QtGui.QFont()
         font.setPointSize(9)
         font.setBold(True)
@@ -101,8 +109,11 @@ class Ui_MainWindow(object):
         self.label_4.setFont(font)
         self.label_4.setAlignment(QtCore.Qt.AlignCenter)
         self.label_4.setObjectName("label_4")
-        self.gridLayout.addWidget(self.label_4, 1, 3, 1, 1)
-        self.lineEditLink = QtWidgets.QLineEdit(self.gridLayoutWidget)
+        self.horizontalLayout.addWidget(self.label_4)
+        self.gridLayout_5.addLayout(self.horizontalLayout, 0, 0, 1, 1)
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.lineEditLink = QtWidgets.QLineEdit(self.NewLogin)
         self.lineEditLink.setStyleSheet("QLineEdit {\n"
 "    border: 2px solid gray;\n"
 "    border-radius: 10px;\n"
@@ -112,8 +123,8 @@ class Ui_MainWindow(object):
 "}")
         self.lineEditLink.setMaxLength(100)
         self.lineEditLink.setObjectName("lineEditLink")
-        self.gridLayout.addWidget(self.lineEditLink, 2, 0, 1, 1)
-        self.lineEditUsername = QtWidgets.QLineEdit(self.gridLayoutWidget)
+        self.horizontalLayout_2.addWidget(self.lineEditLink)
+        self.lineEditUsername = QtWidgets.QLineEdit(self.NewLogin)
         self.lineEditUsername.setStyleSheet("QLineEdit {\n"
 "    border: 2px solid gray;\n"
 "    border-radius: 10px;\n"
@@ -123,8 +134,8 @@ class Ui_MainWindow(object):
 "}")
         self.lineEditUsername.setMaxLength(75)
         self.lineEditUsername.setObjectName("lineEditUsername")
-        self.gridLayout.addWidget(self.lineEditUsername, 2, 1, 1, 1)
-        self.lineEditPassword = QtWidgets.QLineEdit(self.gridLayoutWidget)
+        self.horizontalLayout_2.addWidget(self.lineEditUsername)
+        self.lineEditPassword = QtWidgets.QLineEdit(self.NewLogin)
         self.lineEditPassword.setStyleSheet("QLineEdit {\n"
 "    border: 2px solid gray;\n"
 "    border-radius: 10px;\n"
@@ -134,17 +145,8 @@ class Ui_MainWindow(object):
 "}")
         self.lineEditPassword.setMaxLength(75)
         self.lineEditPassword.setObjectName("lineEditPassword")
-        self.gridLayout.addWidget(self.lineEditPassword, 2, 2, 1, 1)
-        self.label = QtWidgets.QLabel(self.gridLayoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label.setFont(font)
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setObjectName("label")
-        self.gridLayout.addWidget(self.label, 1, 0, 1, 1)
-        self.lineEditSiteName = QtWidgets.QLineEdit(self.gridLayoutWidget)
+        self.horizontalLayout_2.addWidget(self.lineEditPassword)
+        self.lineEditSiteName = QtWidgets.QLineEdit(self.NewLogin)
         self.lineEditSiteName.setStyleSheet("QLineEdit {\n"
 "    border: 2px solid gray;\n"
 "    border-radius: 10px;\n"
@@ -154,9 +156,17 @@ class Ui_MainWindow(object):
 "}")
         self.lineEditSiteName.setMaxLength(150)
         self.lineEditSiteName.setObjectName("lineEditSiteName")
-        self.gridLayout.addWidget(self.lineEditSiteName, 2, 3, 1, 1)
+        self.horizontalLayout_2.addWidget(self.lineEditSiteName)
+        self.gridLayout_5.addLayout(self.horizontalLayout_2, 1, 0, 1, 1)
+        self.gridLayout_2 = QtWidgets.QGridLayout()
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        spacerItem = QtWidgets.QSpacerItem(20, 60, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem, 0, 1, 1, 1)
+        spacerItem1 = QtWidgets.QSpacerItem(250, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_2.addItem(spacerItem1, 1, 0, 1, 1)
         self.ButtonSave = QtWidgets.QPushButton(self.NewLogin)
-        self.ButtonSave.setGeometry(QtCore.QRect(270, 160, 151, 31))
+        self.ButtonSave.setMinimumSize(QtCore.QSize(120, 0))
+        self.ButtonSave.setMaximumSize(QtCore.QSize(300, 16777215))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
@@ -183,11 +193,85 @@ class Ui_MainWindow(object):
 "    border-color: navy; /* make the default button prominent */\n"
 "}")
         self.ButtonSave.setObjectName("ButtonSave")
+        self.gridLayout_2.addWidget(self.ButtonSave, 1, 1, 1, 1)
+        spacerItem2 = QtWidgets.QSpacerItem(250, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_2.addItem(spacerItem2, 1, 2, 1, 1)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem3, 2, 1, 1, 1)
+        self.gridLayout_5.addLayout(self.gridLayout_2, 2, 0, 1, 1)
+        self.gridLayout_6.addLayout(self.gridLayout_5, 0, 0, 1, 1)
         self.tabWidget.addTab(self.NewLogin, "")
         self.Consultation = QtWidgets.QWidget()
         self.Consultation.setObjectName("Consultation")
+        self.gridLayout_4 = QtWidgets.QGridLayout(self.Consultation)
+        self.gridLayout_4.setObjectName("gridLayout_4")
+        self.gridLayout_3 = QtWidgets.QGridLayout()
+        self.gridLayout_3.setObjectName("gridLayout_3")
+        self.tableWidget = QtWidgets.QTableWidget(self.Consultation)
+        self.tableWidget.setStyleSheet("QTableWidget {\n"
+"    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5,\n"
+"                                stop: 0 #FF92BB, stop: 1 black);\n"
+"    color: black;\n"
+"}\n"
+"\n"
+"QTableWidget QTableCornerButton::section {\n"
+"    background: red;\n"
+"    border: 2px outset red;\n"
+"}")
+        self.tableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)
+        self.tableWidget.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setShowGrid(True)
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(5)
+        self.tableWidget.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setUnderline(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setUnderline(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setItalic(False)
+        font.setUnderline(True)
+        font.setWeight(75)
+        font.setStrikeOut(False)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setUnderline(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setUnderline(True)
+        font.setWeight(75)
+        item.setFont(font)
+        self.tableWidget.setHorizontalHeaderItem(4, item)
+        self.tableWidget.horizontalHeader().setCascadingSectionResizes(True)
+        self.tableWidget.horizontalHeader().setDefaultSectionSize(135)
+        self.tableWidget.horizontalHeader().setMinimumSectionSize(50)
+        self.tableWidget.horizontalHeader().setSortIndicatorShown(False)
+        self.tableWidget.verticalHeader().setCascadingSectionResizes(True)
+        self.gridLayout_3.addWidget(self.tableWidget, 0, 0, 1, 1)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem4)
         self.ButtonLogins = QtWidgets.QPushButton(self.Consultation)
-        self.ButtonLogins.setGeometry(QtCore.QRect(160, 270, 111, 28))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(True)
@@ -214,56 +298,10 @@ class Ui_MainWindow(object):
 "    border-color: navy; /* make the default button prominent */\n"
 "}")
         self.ButtonLogins.setObjectName("ButtonLogins")
-        self.ButtonSubmit = QtWidgets.QPushButton(self.Consultation)
-        self.ButtonSubmit.setGeometry(QtCore.QRect(590, 350, 93, 21))
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setWeight(75)
-        self.ButtonSubmit.setFont(font)
-        self.ButtonSubmit.setStyleSheet("QPushButton {\n"
-"    border: 2px solid #8f8f91;\n"
-"    border-radius: 6px;\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #f6f7fa, stop: 1 #dadbde);\n"
-"    min-width: 80px;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
-"}\n"
-"\n"
-"QPushButton:flat {\n"
-"    border: none; /* no border for a flat push button */\n"
-"}\n"
-"\n"
-"QPushButton:default {\n"
-"    border-color: navy; /* make the default button prominent */\n"
-"}")
-        self.ButtonSubmit.setObjectName("ButtonSubmit")
-        self.lineEditSearch = QtWidgets.QLineEdit(self.Consultation)
-        self.lineEditSearch.setGeometry(QtCore.QRect(30, 350, 541, 21))
-        self.lineEditSearch.setFocusPolicy(QtCore.Qt.StrongFocus)
-        self.lineEditSearch.setAutoFillBackground(False)
-        self.lineEditSearch.setStyleSheet("QLineEdit {\n"
-"    border: 2px solid gray;\n"
-"    border-radius: 10px;\n"
-"    padding: 0 8px;\n"
-"    /*background: yellow;*/\n"
-"    selection-background-color: darkgray;\n"
-"}")
-        self.lineEditSearch.setClearButtonEnabled(True)
-        self.lineEditSearch.setObjectName("lineEditSearch")
-        self.label_5 = QtWidgets.QLabel(self.Consultation)
-        self.label_5.setGeometry(QtCore.QRect(30, 320, 171, 21))
-        font = QtGui.QFont()
-        font.setPointSize(9)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_5.setFont(font)
-        self.label_5.setObjectName("label_5")
+        self.horizontalLayout_3.addWidget(self.ButtonLogins)
+        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem5)
         self.ButtonClear = QtWidgets.QPushButton(self.Consultation)
-        self.ButtonClear.setGeometry(QtCore.QRect(400, 270, 93, 28))
         font = QtGui.QFont()
         font.setPointSize(10)
         font.setBold(True)
@@ -290,34 +328,71 @@ class Ui_MainWindow(object):
 "    border-color: navy; /* make the default button prominent */\n"
 "}")
         self.ButtonClear.setObjectName("ButtonClear")
-        self.tableWidget = QtWidgets.QTableWidget(self.Consultation)
-        self.tableWidget.setGeometry(QtCore.QRect(10, 10, 681, 241))
-        self.tableWidget.setStyleSheet("QTableWidget {\n"
-"    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5,\n"
-"                                stop: 0 #FF92BB, stop: 1 black);\n"
-"    color: black;\n"
+        self.horizontalLayout_3.addWidget(self.ButtonClear)
+        spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem6)
+        self.gridLayout_3.addLayout(self.horizontalLayout_3, 1, 0, 1, 1)
+        self.label_5 = QtWidgets.QLabel(self.Consultation)
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_5.setFont(font)
+        self.label_5.setObjectName("label_5")
+        self.gridLayout_3.addWidget(self.label_5, 2, 0, 1, 1)
+        self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.lineEditSearch = QtWidgets.QLineEdit(self.Consultation)
+        self.lineEditSearch.setFocusPolicy(QtCore.Qt.StrongFocus)
+        self.lineEditSearch.setAutoFillBackground(False)
+        self.lineEditSearch.setStyleSheet("QLineEdit {\n"
+"    border: 2px solid gray;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    /*background: yellow;*/\n"
+"    selection-background-color: darkgray;\n"
+"}")
+        self.lineEditSearch.setClearButtonEnabled(True)
+        self.lineEditSearch.setObjectName("lineEditSearch")
+        self.horizontalLayout_4.addWidget(self.lineEditSearch)
+        self.ButtonSubmit = QtWidgets.QPushButton(self.Consultation)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.ButtonSubmit.sizePolicy().hasHeightForWidth())
+        self.ButtonSubmit.setSizePolicy(sizePolicy)
+        self.ButtonSubmit.setMinimumSize(QtCore.QSize(84, 0))
+        self.ButtonSubmit.setSizeIncrement(QtCore.QSize(0, 0))
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.ButtonSubmit.setFont(font)
+        self.ButtonSubmit.setStyleSheet("QPushButton {\n"
+"    border: 2px solid #8f8f91;\n"
+"    border-radius: 6px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #f6f7fa, stop: 1 #dadbde);\n"
+"    min-width: 80px;\n"
 "}\n"
 "\n"
-"QTableWidget QTableCornerButton::section {\n"
-"    background: red;\n"
-"    border: 2px outset red;\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
 "}")
-        self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(5)
-        self.tableWidget.setRowCount(0)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(0, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(1, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(2, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(3, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(4, item)
-        self.tableWidget.horizontalHeader().setDefaultSectionSize(135)
-        self.tableWidget.horizontalHeader().setMinimumSectionSize(50)
+        self.ButtonSubmit.setObjectName("ButtonSubmit")
+        self.horizontalLayout_4.addWidget(self.ButtonSubmit)
+        self.gridLayout_3.addLayout(self.horizontalLayout_4, 3, 0, 1, 1)
+        self.gridLayout_4.addLayout(self.gridLayout_3, 0, 0, 1, 1)
         self.tabWidget.addTab(self.Consultation, "")
+        self.gridLayout.addWidget(self.tabWidget, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         font = QtGui.QFont()
@@ -335,16 +410,12 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Login Manager"))
+        self.label.setText(_translate("MainWindow", "The Link"))
         self.label_2.setText(_translate("MainWindow", "Your Username"))
         self.label_3.setText(_translate("MainWindow", "Your Password"))
         self.label_4.setText(_translate("MainWindow", "The site name"))
-        self.label.setText(_translate("MainWindow", "The Link"))
         self.ButtonSave.setText(_translate("MainWindow", "Save"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.NewLogin), _translate("MainWindow", "New Login"))
-        self.ButtonLogins.setText(_translate("MainWindow", "All Logins"))
-        self.ButtonSubmit.setText(_translate("MainWindow", "Submit"))
-        self.label_5.setText(_translate("MainWindow", "Search by Name Site"))
-        self.ButtonClear.setText(_translate("MainWindow", "Clear"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "Name Site"))
         item = self.tableWidget.horizontalHeaderItem(1)
@@ -355,6 +426,10 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Link"))
         item = self.tableWidget.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Inscription Date"))
+        self.ButtonLogins.setText(_translate("MainWindow", "All Logins"))
+        self.ButtonClear.setText(_translate("MainWindow", "Clear"))
+        self.label_5.setText(_translate("MainWindow", "Search by Name Site"))
+        self.ButtonSubmit.setText(_translate("MainWindow", "Submit"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Consultation), _translate("MainWindow", "Consultation"))
 
 
