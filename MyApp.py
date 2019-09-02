@@ -20,7 +20,7 @@ class MyApp(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        #self.statusBar = QStatusBar()
+        
         #self.ui.actionSair.triggered.connect(qApp.quit) 
         
         query = "CREATE TABLE IF NOT EXISTS Logins (Site_Name varchar(150),\
@@ -46,7 +46,13 @@ class MyApp(QMainWindow):
         
         self.ui.ButtonSubmit.clicked.connect(self.submit)
         
-        self.ui.ButtonClear.clicked.connect(self.ui.tableWidget.clearContents)
+        self.ui.ButtonClear.clicked.connect(self.clear)
+        
+        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(0, QtWidgets.QHeaderView.Stretch)
+        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
+        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(2, QtWidgets.QHeaderView.Stretch)
+        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(3, QtWidgets.QHeaderView.Stretch)
+        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(4, QtWidgets.QHeaderView.Stretch)
                 
         self.date = QtCore.QDate.currentDate().toString('dd-MM-yyyy')
         
@@ -137,6 +143,15 @@ class MyApp(QMainWindow):
                 self.ui.lineEditPassword.clear()
                 self.ui.lineEditSiteName.clear()
                 conn.close()
+                
+    def clear(self):
+        
+        if self.ui.tableWidget.rowCount() == 0:
+            self.statusBar().setStyleSheet("color: red")
+            self.statusBar().showMessage("There is nothing to be cleared!", 2000)
+        else:
+            self.ui.tableWidget.clearContents()
+            self.ui.tableWidget.setRowCount(0)
     
     def allLogins(self):
         """ Esta função retorna todos os logins da base de dados """
@@ -144,9 +159,7 @@ class MyApp(QMainWindow):
         sql = "SELECT * FROM Logins"
         try:
             conn = sqlite3.connect("database.db")
-            #self.statusBar().setStyleSheet("color: black")
-            #self.statusBar().showMessage("Connection for consultation successful!", 2000)
-            
+                        
             with conn:
                 cur = conn.cursor()
                 cur.execute(sql)
@@ -169,25 +182,22 @@ class MyApp(QMainWindow):
     def submit(self):
         """ Esta função busca um determinado login dentro da base de dado """
         
-        sql = " SELECT * FROM Logins WHERE Site_Name = '"+self.ui.lineEditSearch.text()+"'"  
+        sql = " SELECT * FROM Logins WHERE Site_Name LIKE '"+self.ui.lineEditSearch.text()+"%'"  
         
-        if self.ui.lineEditSearch.text() == "":
+        if self.ui.lineEditSearch.text() == "":            
             self.statusBar().setStyleSheet("color: red")
             self.statusBar().showMessage("Nothing to be searched", 2000)  
             
         else:        
             try:
                 conn = sqlite3.connect("database.db")
-                #self.statusBar().setStyleSheet("color: black")
-                #self.statusBar().showMessage("Connection for submit successfull!", 2000)
-                
+                                
                 with conn:
                     cur = conn.cursor()
                     cur.execute(sql)
                     rows = cur.fetchall()
-                    #print(type(rows))
-                    if len(rows) == 0:
-                        self.ui.tableWidget.clearContents()
+                    
+                    if len(rows) == 0:                        
                         self.statusBar().setStyleSheet("color: red")
                         self.statusBar().showMessage("Name site not found!", 2000)
                         
