@@ -1,6 +1,6 @@
 # LOGINS
 
-Proyecto desarollado por mí persona con la finalidad de practicar y comprobar mis conocimientos de programación en python
+Proyecto desarollado por mí persona en python para gerenciar Logines.
 
 ## Motivación ⌨️
 
