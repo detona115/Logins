@@ -1,4 +1,4 @@
-[![GitHub license](https://img.shields.io/badge/implemented%20by-Andy-blue)](https://github.com/detona115/Logins)
+[![GitHub license](https://img.shields.io/badge/implemented%20by-Andy-blue)](https://www.linkedin.com/in/andy-kiaka-76a983110/)
 # LOGINS
 
 Proyecto desarollado por mí persona en python para gerenciar Logines.
